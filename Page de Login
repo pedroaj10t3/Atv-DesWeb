@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Simples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input {
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px;
+            width: 100%;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #confirm-container {
+            display: none;
+            margin-top: 10px;
+        }
+        #confirm-container img {
+            max-width: 70%;
+            height: auto;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Login</h2>
+    <form id="loginForm" onsubmit="return confirmLogin()">
+        <input type="text" id="username" placeholder="Usuário" required><br>
+        <input type="password" id="password" placeholder="Senha" required><br>
+        <button type="submit">Login</button>
+    </form>
+
+    <div id="confirm-container">
+        <p id="confirm-message"></p>
+        <div id="image-container">
+            <!-- Substitua o valor do atributo src pela URL da sua imagem -->
+            <img id="login-image" src="https://i.pinimg.com/736x/18/86/5d/18865d7c35f303a9a72690eccf02c33e.jpg" alt="Imagem de confirmação">
+        </div>
+        <button onclick="finalizeLogin()">Confirmar</button>
+    </div>
+    <p id="output"></p>
+</div>
+
+<script>
+    function confirmLogin() {
+        const username = document.getElementById('username').value;
+
+        // Exibe a pergunta de confirmação e a imagem
+        document.getElementById('confirm-message').textContent = Tem certeza sobre isso ${username}? Deseja continuar?🤨;
+        document.getElementById('confirm-container').style.display = 'block';
+
+        return false; // Previne o envio do formulário até que o usuário confirme
+    }
+
+    function finalizeLogin() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        document.getElementById('output').textContent = Caso tenha esquecido bobinho: Login:${username} Senha:${password};
+        document.getElementById('confirm-container').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
