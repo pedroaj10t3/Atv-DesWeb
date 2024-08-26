@@ -76,7 +76,7 @@
         const username = document.getElementById('username').value;
 
         // Exibe a pergunta de confirmação e a imagem
-        document.getElementById('confirm-message').textContent = Tem certeza sobre isso ${username}? Deseja continuar?🤨;
+        document.getElementById('confirm-message').textContent = `Tem certeza sobre isso ${username}? Deseja continuar?🤨`;
         document.getElementById('confirm-container').style.display = 'block';
 
         return false; // Previne o envio do formulário até que o usuário confirme
@@ -86,7 +86,7 @@
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
 
-        document.getElementById('output').textContent = Caso tenha esquecido bobinho: Login:${username} Senha:${password};
+        document.getElementById('output').textContent = `Caso tenha esquecido bobinho: Login:${username} Senha:${password}`;
         document.getElementById('confirm-container').style.display = 'none';
     }
 </script>
